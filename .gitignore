@@ -1,0 +1,7 @@
+Debug
+Release
+*.opendb
+*.db
+VisualGDBCache
+CodeDB
+*.suo
