@@ -22,11 +22,11 @@
       </PreprocessorMacros>
       <IncludeDirectories>
         <string>.</string>
-        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/STM32F4xx_HAL_Driver/Inc</string>
-        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/STM32F4xx_HAL_Driver/Inc/Legacy</string>
-        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx/Include</string>
-        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx/Include/t</string>
-        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL/Include</string>
+        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/STM32F4xx_HAL_Driver</string>
+        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/STM32F4xx_HAL_Driver/Legacy</string>
+        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx</string>
+        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx/t</string>
+        <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL</string>
         <string>$$SYS:BSP_ROOT$$/STM32F4xxxx/CMSIS_HAL/RTOS/Template</string>
       </IncludeDirectories>
       <AdditionalLibraries>

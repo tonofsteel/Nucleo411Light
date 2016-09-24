@@ -1087,11 +1087,11 @@
 
 // --- Include directories begin --- //
 //.
-//$(ProjectDir)/BSP/STM32F4xxxx/STM32F4xx_HAL_Driver/Inc
-//$(ProjectDir)/BSP/STM32F4xxxx/STM32F4xx_HAL_Driver/Inc/Legacy
-//$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx/Include
-//$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx/Include/t
-//$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL/Include
+//$(ProjectDir)/BSP/STM32F4xxxx/STM32F4xx_HAL_Driver
+//$(ProjectDir)/BSP/STM32F4xxxx/STM32F4xx_HAL_Driver/Legacy
+//$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx
+//$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL/Device/ST/STM32F4xx/t
+//$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL
 //$(ProjectDir)/BSP/STM32F4xxxx/CMSIS_HAL/RTOS/Template
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/5.3.0/../../../../arm-eabi/include/c++/5.3.0
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/5.3.0/../../../../arm-eabi/include/c++/5.3.0/arm-eabi/thumb/fpu/cortex_m4
