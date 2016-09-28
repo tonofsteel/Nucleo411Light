@@ -13,33 +13,29 @@ void SysTick_Handler(void)
 	HAL_SYSTICK_IRQHandler();
 }
 
+//Private Function Declarations
 void SetSysClockTo100MHz(void);
+void NucleoHardwareInit_PushButton(void);
+void NucleoHardwareInit_LED(void);
+
 
 int main(void)
 {
 	SetSysClockTo100MHz();
 	
 	HAL_Init();
+	
 
-	__GPIOA_CLK_ENABLE();
-	GPIO_InitTypeDef GPIO_InitStructure;
-
-	GPIO_InitStructure.Pin = GPIO_PIN_5;
-
-	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
-	GPIO_InitStructure.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	uint32_t ClockFrequency = HAL_RCC_GetSysClockFreq();
 	
 	
 	for (;;)
 	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-		HAL_Delay(500);
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-		HAL_Delay(500);
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		//HAL_Delay(500);
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+		//HAL_Delay(500);
 	}
 }
 
@@ -52,9 +48,7 @@ void SetSysClockTo100MHz(void)
 {
 	RCC_OscInitTypeDef RCC_OscInitStruct;
 	RCC_ClkInitTypeDef RCC_ClkInitStruct;
-	
-	//HAL_RCC_DeInit();
-	
+		
 	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;  //16 Mhz
 	RCC_OscInitStruct.HSEState = RCC_HSE_OFF;	// No External Crystal Installed on Nucleo
 	RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -72,6 +66,34 @@ void SetSysClockTo100MHz(void)
 	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
 	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 	HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3);	// RM0383 manual Section 3.4 Read Interface (min is 3 but 4 for lower voltage range) - this setting depends on frequency configured and voltage
+}
 
+// PC13
+void NucleoHardwareInit_PushButton(void)
+{
+	__HAL_RCC_GPIOC_CLK_ENABLE();
 	
+	GPIO_InitTypeDef GPIO_InitStructure;
+	
+	GPIO_InitStructure.Pin = GPIO_PIN_13;
+	
+	GPIO_InitStructure.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStructure.Speed = GPIO_SPEED_LOW;
+	GPIO_InitStructure.Pull = GPIO_NOPULL;	// Board mounted resistor pull up to 3.3V
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStructure);
+}
+
+// PA5
+void NucleoHardwareInit_LED(void)
+{
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	//__GPIOA_CLK_ENABLE();  // Legacy
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	GPIO_InitStructure.Pin = GPIO_PIN_5;
+
+	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
+	GPIO_InitStructure.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
